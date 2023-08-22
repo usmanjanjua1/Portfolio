@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/constants.dart';
 
 class BackgroundImage extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class BackgroundImage extends StatelessWidget {
           // ),
           ),
       child: Image.asset(
-        'assets/background1.jpg',
+        backImg,
         fit: BoxFit.cover,
       ),
     );

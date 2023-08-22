@@ -27,7 +27,7 @@ class _CustomButtonState extends State<CustomButton> {
             elevation: 10,
             shadowColor: Colors.black,
             splashFactory: InkSparkle.splashFactory,
-            animationDuration: const Duration(milliseconds: 500),
+            animationDuration: const Duration(seconds: 10),
             backgroundColor: _isHovered ? Colors.black54 : Colors.black45,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(

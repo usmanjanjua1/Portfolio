@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/models/education.dart';
+import 'package:portfolio/widgets/card_tile.dart';
+import 'package:portfolio/widgets/custom_divider.dart';
 
 import '../widgets/background_image.dart';
 import '../widgets/circular_progress.dart';
 import '../widgets/custom_button.dart';
+import '../widgets/custom_title.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -52,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               Container(
-                height: MediaQuery.of(context).size.width * 0.45,
+                height: dynamicSize * 0.45,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -78,8 +83,7 @@ class _HomePageState extends State<HomePage> {
                                 double avatarSize = constraints.maxWidth * 0.2;
                                 return CircleAvatar(
                                   radius: avatarSize,
-                                  backgroundImage: const AssetImage(
-                                      'assets/background1.jpg'),
+                                  backgroundImage: const AssetImage(backImg),
                                 );
                               },
                             ),
@@ -142,19 +146,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ]),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: Divider(
-                  color: Colors.grey,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                child: Text(
-                  'Programming Languages',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
-                ),
-              ),
+              const customDivider(),
+              const customTitle(txt: 'Programming Languages'),
               const Padding(
                 padding: EdgeInsets.all(15),
                 child: Column(
@@ -172,15 +165,51 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Card(
-                elevation: 10,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: Container(
-                  // color: Colors.grey,
-                  height: dynamicSize * 0.7,
-                  width: dynamicSize * 0.4,
+              // cardTile(dynamicSize)
+              SizedBox(
+                height: dynamicSize * 01.1,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  itemCount: myEducation.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CardTile(
+                      screensize: dynamicSize,
+                      title: myEducation[index].title,
+                      subTitile: myEducation[index].subtitle,
+                      year: myEducation[index].year,
+                      img: myEducation[index].img,
+                    );
+                  },
                 ),
+              ),
+
+              customDivider(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: const CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(githubImg),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: const CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(instagramImg),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: const CircleAvatar(
+                      radius: 30,
+                      backgroundImage: AssetImage(linkedInImg),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
@@ -188,4 +217,54 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  // Card cardTile(dynamicSize) {
+  //   return Card(
+  //             elevation: 10,
+  //             color: Colors.grey.shade800,
+  //             shadowColor: Colors.grey,
+  //             shape: RoundedRectangleBorder(
+  //                 borderRadius: BorderRadius.circular(20)),
+  //             child: SizedBox(
+  //               width: dynamicSize * 0.6,
+  //               child: Column(
+  //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //                 crossAxisAlignment: CrossAxisAlignment.center,
+  //                 children: [
+  //                   CircleAvatar(
+  //                     backgroundColor: Colors.transparent,
+  //                     backgroundImage: const AssetImage(
+  //                       githubImg,
+  //                     ),
+  //                     radius: dynamicSize * 0.13,
+  //                   ),
+  //                   Text(
+  //                     'Hello',
+  //                     style: TextStyle(
+  //                         color: Colors.white, fontSize: dynamicSize * 0.1),
+  //                   ),
+  //                   Padding(
+  //                     padding: EdgeInsets.all(dynamicSize * 0.05),
+  //                     child: Text(
+  //                       'Replace with the actual image URL you want to use, aksdjlaksjdlkasjdlksajldkjsaldkjalksjdlaksjd and customize the text as needed. This code places the CircleAvatar with the image at the top middle of the Card, followed by a Text widget below it. The SizedBox widgets are used to add spacing for better visual alignment. The ClipRRect ensures that the background image conforms to the rounded corner shape of the card.',
+  //                       style: TextStyle(
+  //                           color: Colors.white,
+  //                           fontSize: dynamicSize * 0.05,
+  //                           overflow: TextOverflow.ellipsis),
+  //                       maxLines: 7,
+  //                     ),
+  //                   ),
+  //                   TextButton(
+  //                       onPressed: () {},
+  //                       child: Text(
+  //                         'Read more>>',
+  //                         style: TextStyle(
+  //                             color: Colors.deepPurple.shade400,
+  //                             fontSize: dynamicSize * 0.05),
+  //                       ))
+  //                 ],
+  //               ),
+  //             ),
+  //           );
+  // }
 }
