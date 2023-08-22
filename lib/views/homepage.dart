@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/models/education.dart';
-import 'package:portfolio/widgets/card_tile.dart';
 import 'package:portfolio/widgets/custom_divider.dart';
-
 import '../widgets/background_image.dart';
+import '../widgets/bottom_text.dart';
 import '../widgets/circular_progress.dart';
+import '../widgets/contact_bar.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_title.dart';
+import '../widgets/education_tiles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              Container(
+              SizedBox(
                 height: dynamicSize * 0.45,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -109,12 +109,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                child: Divider(
-                  color: Colors.grey,
-                ),
-              ),
+              const customDivider(),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: Text(
@@ -148,9 +143,9 @@ class _HomePageState extends State<HomePage> {
               ),
               const customDivider(),
               const customTitle(txt: 'Programming Languages'),
-              const Padding(
-                padding: EdgeInsets.all(15),
-                child: Column(
+              Padding(
+                padding: EdgeInsets.all(dynamicSize * 0.07),
+                child: const Column(
                   children: [
                     AnimatedLinearProgressIndicator(
                         percentage: 0.9, label: 'C++'),
@@ -165,106 +160,83 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              // cardTile(dynamicSize)
-              SizedBox(
-                height: dynamicSize * 01.1,
-                width: double.maxFinite,
-                child: ListView.builder(
-                  itemCount: myEducation.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return CardTile(
-                      screensize: dynamicSize,
-                      title: myEducation[index].title,
-                      subTitile: myEducation[index].subtitle,
-                      year: myEducation[index].year,
-                      img: myEducation[index].img,
-                    );
-                  },
-                ),
-              ),
+              const customDivider(),
+              const customTitle(txt: 'Education'),
+              Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: dynamicSize * 0.01,
+                      vertical: dynamicSize * 0.02),
+                  child: EducationTiles(dynamicSize: dynamicSize)),
+              const customDivider(),
+              const customTitle(txt: 'Services'),
+              // Card(
+              //   elevation: 10,
+              //   shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(30)),
+              //   color: Colors.white70,
+              //   child: SizedBox(
+              //     height: dynamicSize * 0.7,
+              //     child: const Column(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         Image(image: AssetImage(appIcon)),
+              //       ],
+              //     ),
+              //   ),
+              // ),
 
-              customDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  InkWell(
-                    onTap: () {},
-                    child: const CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage(githubImg),
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        webIcon,
+                        color: Colors.deepPurple.shade200,
+                        height: dynamicSize * 0.3,
+                        width: dynamicSize * 0.3,
+                      ),
+                      SizedBox(
+                        height: dynamicSize * 0.06,
+                      ),
+                      Text(
+                        'Web Development',
+                        style: TextStyle(
+                            color: Colors.white, fontSize: dynamicSize * 0.05),
+                      ),
+                    ],
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: const CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage(instagramImg),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: const CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage(linkedInImg),
-                    ),
-                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        webIcon,
+                        color: Colors.deepPurple.shade200,
+                        height: dynamicSize * 0.3,
+                        width: dynamicSize * 0.3,
+                      ),
+                      SizedBox(
+                        height: dynamicSize * 0.06,
+                      ),
+                      Text(
+                        'Web Development',
+                        style: TextStyle(
+                            color: Colors.white, fontSize: dynamicSize * 0.05),
+                      ),
+                    ],
+                  )
                 ],
-              )
+              ),
+
+              const customDivider(),
+              ContactBar(dynamicSize: dynamicSize),
+              const customDivider(),
+              const BottomText()
             ],
           ),
         ),
       ),
     );
   }
-
-  // Card cardTile(dynamicSize) {
-  //   return Card(
-  //             elevation: 10,
-  //             color: Colors.grey.shade800,
-  //             shadowColor: Colors.grey,
-  //             shape: RoundedRectangleBorder(
-  //                 borderRadius: BorderRadius.circular(20)),
-  //             child: SizedBox(
-  //               width: dynamicSize * 0.6,
-  //               child: Column(
-  //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-  //                 crossAxisAlignment: CrossAxisAlignment.center,
-  //                 children: [
-  //                   CircleAvatar(
-  //                     backgroundColor: Colors.transparent,
-  //                     backgroundImage: const AssetImage(
-  //                       githubImg,
-  //                     ),
-  //                     radius: dynamicSize * 0.13,
-  //                   ),
-  //                   Text(
-  //                     'Hello',
-  //                     style: TextStyle(
-  //                         color: Colors.white, fontSize: dynamicSize * 0.1),
-  //                   ),
-  //                   Padding(
-  //                     padding: EdgeInsets.all(dynamicSize * 0.05),
-  //                     child: Text(
-  //                       'Replace with the actual image URL you want to use, aksdjlaksjdlkasjdlksajldkjsaldkjalksjdlaksjd and customize the text as needed. This code places the CircleAvatar with the image at the top middle of the Card, followed by a Text widget below it. The SizedBox widgets are used to add spacing for better visual alignment. The ClipRRect ensures that the background image conforms to the rounded corner shape of the card.',
-  //                       style: TextStyle(
-  //                           color: Colors.white,
-  //                           fontSize: dynamicSize * 0.05,
-  //                           overflow: TextOverflow.ellipsis),
-  //                       maxLines: 7,
-  //                     ),
-  //                   ),
-  //                   TextButton(
-  //                       onPressed: () {},
-  //                       child: Text(
-  //                         'Read more>>',
-  //                         style: TextStyle(
-  //                             color: Colors.deepPurple.shade400,
-  //                             fontSize: dynamicSize * 0.05),
-  //                       ))
-  //                 ],
-  //               ),
-  //             ),
-  //           );
-  // }
 }

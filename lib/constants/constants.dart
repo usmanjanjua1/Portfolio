@@ -17,3 +17,7 @@ const String myImg = 'assets/myImg.png';
 const String pgcImg = 'assets/pgc.png';
 const String schoolImg = 'assets/school.png';
 const String ucpImg = 'assets/ucp.png';
+const String gameIcon = 'assets/game.png';
+const String webIcon = 'assets/web.png';
+const String databaseIcon = 'assets/database.png';
+const String appIcon = 'assets/app1.png';
