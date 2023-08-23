@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/utils/media_query.dart';
 import 'package:portfolio/utils/responsive.dart';
+import 'package:portfolio/views/complete_linearprogress_widget.dart';
+import 'package:portfolio/widgets/complete_circleprogress_widget.dart';
+import 'package:portfolio/widgets/contact_card.dart';
 import 'package:portfolio/widgets/custom_divider.dart';
-import '../models/myservices.dart';
+import 'package:portfolio/widgets/services_listview.dart';
 import '../widgets/background_image.dart';
 import '../widgets/bottom_text.dart';
-import '../widgets/circular_progress.dart';
 import '../widgets/contact_bar.dart';
-import '../widgets/custom_button.dart';
 import '../widgets/custom_title.dart';
 import '../widgets/education_tiles.dart';
 import '../widgets/row_buttons.dart';
+import 'mobileview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,10 +33,8 @@ class _HomePageState extends State<HomePage> {
           children: [
             Stack(
               children: [
-                BackgroundImage(
-                    dynamicSize: dynamicSize), // Display the background image
-                // Display the foreground components
-                if (Responsive.isDesktop(context) &&
+                BackgroundImage(dynamicSize: dynamicSize),
+                if (Responsive.isDesktop(context) ||
                     Responsive.isTablet(context))
                   webAppBar(dynamicSize),
                 Positioned(
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                               double avatarSize = dynamicSize * 0.2;
                               return CircleAvatar(
                                 radius: avatarSize,
-                                backgroundImage: const AssetImage(backImg2),
+                                backgroundImage: const AssetImage(backImg),
                               );
                             },
                           ),
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Column(
               children: [
-                Text('Usman Tariq',
+                Text(name,
                     style: TextStyle(
                         color: Colors.white, fontSize: dynamicSize * 0.07),
                     textAlign: TextAlign.center),
@@ -114,110 +114,11 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            Responsive.isDesktop(context)
+                ? webviewOfServicesEducation(dynamicSize)
+                : MobileView(dynamicSize: dynamicSize),
             const customDivider(),
-            const customTitle(txt: 'Skills'),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical: dynamicSize * 0.1, horizontal: dynamicSize * 0.1),
-              child: SizedBox(
-                height: dynamicSize * 0.35,
-                width: double.maxFinite,
-                child: Row(children: [
-                  Expanded(
-                    child: AnimatedCircularProgressIndicator(
-                        dynamicSize: dynamicSize,
-                        label: 'Web',
-                        percentage: 0.6),
-                  ),
-                  SizedBox(
-                    width: dynamicSize * 0.1,
-                  ),
-                  Expanded(
-                    child: AnimatedCircularProgressIndicator(
-                        dynamicSize: dynamicSize,
-                        label: 'C++',
-                        percentage: 0.9),
-                  ),
-                  SizedBox(
-                    width: dynamicSize * 0.1,
-                  ),
-                  Expanded(
-                    child: AnimatedCircularProgressIndicator(
-                        dynamicSize: dynamicSize,
-                        label: 'Flutter',
-                        percentage: 0.65),
-                  ),
-                ]),
-              ),
-            ),
-            const customDivider(),
-            const customTitle(txt: 'Programming Languages'),
-            Padding(
-              padding: EdgeInsets.all(dynamicSize * 0.07),
-              child: const Column(
-                children: [
-                  AnimatedLinearProgressIndicator(
-                      percentage: 0.9, label: 'C++'),
-                  AnimatedLinearProgressIndicator(
-                      percentage: 0.8, label: 'HTML'),
-                  AnimatedLinearProgressIndicator(
-                      percentage: 0.6, label: 'CSS'),
-                  AnimatedLinearProgressIndicator(
-                      percentage: 0.3, label: 'Kotlin'),
-                  AnimatedLinearProgressIndicator(
-                      percentage: 0.7, label: 'Dart'),
-                ],
-              ),
-            ),
-            const customDivider(),
-            const customTitle(txt: 'Education'),
-            Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: dynamicSize * 0.01,
-                    vertical: dynamicSize * 0.02),
-                child: EducationTiles(dynamicSize: dynamicSize)),
-            const customDivider(),
-            const customTitle(txt: 'Services'),
-            Align(
-              alignment: Alignment.centerRight,
-              child: SizedBox(
-                height: dynamicSize * 0.6,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: dynamicSize * 0.06),
-                      child: Card(
-                        color: Colors.transparent,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              myservices[index].image,
-                              color: Colors.cyan.withOpacity(0.35),
-                              height: dynamicSize * 0.3,
-                              width: dynamicSize * 0.3,
-                            ),
-                            SizedBox(
-                              height: dynamicSize * 0.06,
-                            ),
-                            Text(
-                              myservices[index].title,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: dynamicSize * 0.05),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: myservices.length,
-                ),
-              ),
-            ),
+            ContactCard(dynamicSize: dynamicSize),
             const customDivider(),
             ContactBar(dynamicSize: dynamicSize),
             const customDivider(),
@@ -225,6 +126,89 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget webviewOfServicesEducation(dynamicSize) {
+    return Column(
+      children: [
+        customDivider(),
+        SizedBox(
+          height: dynamicSize * 1,
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  children: [
+                    const customTitle(txt: 'Skills'),
+                    Expanded(
+                      child: Center(
+                          child:
+                              CompleteCircleWidget(dynamicSize: dynamicSize)),
+                    ),
+                  ],
+                ),
+              ),
+              const Expanded(
+                  flex: 1,
+                  child: VerticalDivider(
+                    color: Colors.white,
+                  )),
+              Expanded(
+                  flex: 6,
+                  child: Column(
+                    children: [
+                      const customTitle(txt: 'Programming Languages'),
+                      Expanded(
+                        child: CompleteLinearProgressWidget(
+                            dynamicSize: dynamicSize),
+                      ),
+                    ],
+                  )),
+              const Expanded(flex: 1, child: SizedBox()),
+            ],
+          ),
+        ),
+        customDivider(),
+        SizedBox(
+          height: dynamicSize * 0.8,
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  children: [
+                    const customTitle(txt: 'Education'),
+                    Expanded(child: EducationTiles(dynamicSize: dynamicSize)),
+                  ],
+                ),
+              ),
+              const Expanded(
+                  flex: 1,
+                  child: VerticalDivider(
+                    color: Colors.white,
+                  )),
+              Expanded(
+                  flex: 6,
+                  child: Column(
+                    children: [
+                      const customTitle(txt: 'Services'),
+                      Expanded(
+                          child: ServicesListview(dynamicSize: dynamicSize)),
+                    ],
+                  )),
+              const Expanded(flex: 1, child: SizedBox()),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

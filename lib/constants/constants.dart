@@ -15,6 +15,10 @@ const String backImg2 = 'assets/background.jpg';
 const String myInfo =
     'Hello\nMy name is Usman Tariq Janjua; A Software Engineer and Business Enthusiast from Lahore Pakistan.I like to build qualitative Games and Mobile Applications...';
 
+const String name = 'Usman Tariq';
+const String contactDetails =
+    '📍 Lahore,Pakistan\n📱 :0900-78601\n📧: usman.tariq9200@gmail.com';
+
 const String linkedInImg = 'assets/linkedin.png';
 const String githubImg = 'assets/github.png';
 const String instagramImg = 'assets/instagram.png';
@@ -29,3 +33,4 @@ const String appIcon = 'assets/app1.png';
 const String unihatAnimatedIcon = 'assets/graduation-hat.png';
 const String collegeAnimatedIcon = 'assets/college1.png';
 const String trophyAnimatedIcon = 'assets/trophy1.png';
+const String planeAnimatedIcon = 'assets/paper-plane.png';
