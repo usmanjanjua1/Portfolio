@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
 
 class BackgroundImage extends StatelessWidget {
+  final double dynamicSize;
+
+  const BackgroundImage({super.key, required this.dynamicSize});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      height: MediaQuery.of(context).size.width * 0.7, // 40% of screen height
+      height: dynamicSize * 0.7, // 40% of screen height
       decoration: const BoxDecoration(
           // color: Colors.amber,
 

@@ -3,9 +3,10 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
+  final double dynamicSize;
   final String txt;
 
-  const CustomButton({super.key, required this.txt});
+  const CustomButton({super.key, required this.txt, required this.dynamicSize});
   @override
   _CustomButtonState createState() => _CustomButtonState();
 }
@@ -30,15 +31,15 @@ class _CustomButtonState extends State<CustomButton> {
             animationDuration: const Duration(seconds: 10),
             backgroundColor: _isHovered ? Colors.black54 : Colors.black45,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                    MediaQuery.of(context).size.width * 0.13))),
+                borderRadius:
+                    BorderRadius.circular(widget.dynamicSize * 0.13))),
         child: Padding(
-          padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.005),
+          padding: EdgeInsets.all(widget.dynamicSize * 0.005),
           child: Text(
             widget.txt,
             style: TextStyle(
               color: Colors.white,
-              fontSize: MediaQuery.of(context).size.width * 0.03,
+              fontSize: widget.dynamicSize * 0.03,
             ),
           ),
         ),

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 
 class AnimatedCircularProgressIndicator extends StatelessWidget {
+  final double dynamicSize;
   const AnimatedCircularProgressIndicator({
     Key? key,
     required this.percentage,
     required this.label,
+    required this.dynamicSize,
   }) : super(key: key);
 
   final double percentage;
@@ -16,8 +18,9 @@ class AnimatedCircularProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AspectRatio(
-          aspectRatio: 1,
+        SizedBox(
+          height: dynamicSize * .2,
+          width: dynamicSize * .2,
           child: TweenAnimationBuilder(
             tween: Tween<double>(begin: 0, end: percentage),
             duration: defaultDuration,
@@ -25,6 +28,7 @@ class AnimatedCircularProgressIndicator extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 CircularProgressIndicator(
+                  strokeWidth: 6,
                   value: value,
                   color: primaryColor,
                   backgroundColor: darkColor,

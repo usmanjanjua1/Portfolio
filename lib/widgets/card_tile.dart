@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants.dart';
-
 class CardTile extends StatelessWidget {
   final double screensize;
   final String title;
@@ -20,37 +18,42 @@ class CardTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
-      color: Colors.grey.shade800,
-      shadowColor: Colors.grey,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      color: Colors.cyan.withOpacity(0.16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: SizedBox(
         width: screensize * 0.6,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
-              backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage(
-                img,
-              ),
-              radius: screensize * 0.13,
+            Image.asset(
+              img,
+              height: screensize * 0.3,
+              width: screensize * 0.3,
             ),
             Text(
               title,
               style:
-                  TextStyle(color: Colors.white, fontSize: screensize * 0.07),
+                  TextStyle(color: Colors.white, fontSize: screensize * 0.065),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              year,
+              style: TextStyle(
+                  color: Colors.white.withOpacity(0.5),
+                  fontSize: screensize * 0.035),
               textAlign: TextAlign.center,
             ),
             Padding(
-              padding: EdgeInsets.all(screensize * 0.05),
+              padding: EdgeInsets.symmetric(horizontal: screensize * 0.05),
               child: Text(
                 subTitile,
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: screensize * 0.05,
+                    fontSize: screensize * 0.045,
                     overflow: TextOverflow.fade),
-                maxLines: 7,
+                textAlign: TextAlign.center,
+                maxLines: 4,
               ),
             ),
             TextButton(
@@ -59,7 +62,7 @@ class CardTile extends StatelessWidget {
                   'Read more>>',
                   style: TextStyle(
                       color: Colors.deepPurple.shade400,
-                      fontSize: screensize * 0.05),
+                      fontSize: screensize * 0.045),
                 ))
           ],
         ),

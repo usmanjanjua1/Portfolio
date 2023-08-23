@@ -10,7 +10,7 @@ class EducationTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: dynamicSize * 01.1,
+      height: dynamicSize * 0.8,
       width: double.maxFinite,
       child: ListView.builder(
         itemCount: myEducation.length,

@@ -10,6 +10,11 @@ const defaultPadding = 20.0;
 const defaultDuration = Duration(seconds: 1); // we use it on our animation
 const maxWidth = 1440.0; // max width of our web
 const String backImg = 'assets/background1.jpg';
+const String backImg2 = 'assets/background.jpg';
+
+const String myInfo =
+    'Hello\nMy name is Usman Tariq Janjua; A Software Engineer and Business Enthusiast from Lahore Pakistan.I like to build qualitative Games and Mobile Applications...';
+
 const String linkedInImg = 'assets/linkedin.png';
 const String githubImg = 'assets/github.png';
 const String instagramImg = 'assets/instagram.png';
@@ -21,3 +26,6 @@ const String gameIcon = 'assets/game.png';
 const String webIcon = 'assets/web.png';
 const String databaseIcon = 'assets/database.png';
 const String appIcon = 'assets/app1.png';
+const String unihatAnimatedIcon = 'assets/graduation-hat.png';
+const String collegeAnimatedIcon = 'assets/college1.png';
+const String trophyAnimatedIcon = 'assets/trophy1.png';

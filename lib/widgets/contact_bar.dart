@@ -8,30 +8,32 @@ class ContactBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double staticsize = 0.08;
     return SizedBox(
       width: dynamicSize,
       child: Row(
         // crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisSize: MainAxisSize.max,
         children: [
           Image.asset(
             linkedInImg,
             color: Colors.white,
-            height: dynamicSize * 0.1,
-            width: dynamicSize * 0.1,
+            height: dynamicSize * staticsize,
+            width: dynamicSize * staticsize,
           ),
           Image.asset(
             githubImg,
             color: Colors.white,
-            height: dynamicSize * 0.1,
-            width: dynamicSize * 0.1,
+            height: dynamicSize * staticsize,
+            width: dynamicSize * staticsize,
           ),
           Image.asset(
             instagramImg,
             color: Colors.white,
-            height: dynamicSize * 0.1,
-            width: dynamicSize * 0.1,
+            height: dynamicSize * staticsize,
+            width: dynamicSize * staticsize,
           ),
         ],
       ),
