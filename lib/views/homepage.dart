@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
   Widget webviewOfServicesEducation(dynamicSize) {
     return Column(
       children: [
-        customDivider(),
+        const customDivider(),
         SizedBox(
           height: dynamicSize * 1,
           width: double.infinity,
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        customDivider(),
+        const customDivider(),
         SizedBox(
           height: dynamicSize * 0.8,
           width: double.infinity,

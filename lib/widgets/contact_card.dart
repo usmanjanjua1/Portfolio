@@ -44,7 +44,7 @@ class ContactCard extends StatelessWidget {
                 showAlertDialog(context, dynamicSize);
               },
               color: Colors.white,
-              fontSize: dynamicSize * 0.04,
+              fontSize: dynamicSize * 0.038,
               backgroundColor: Colors.white12,
             )
           ],

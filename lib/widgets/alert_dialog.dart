@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/custom_roundbutton.dart';
 
@@ -10,7 +12,8 @@ void showAlertDialog(BuildContext context, double dynamicSize) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        backgroundColor: Colors.white.withOpacity(0.9),
+        elevation: 20,
+        backgroundColor: Colors.white.withOpacity(0.93),
         title: const Text(
           'Send Message',
           textAlign: TextAlign.center,
@@ -62,7 +65,7 @@ void showAlertDialog(BuildContext context, double dynamicSize) {
                 Navigator.pop(context);
               },
               color: Colors.white,
-              fontSize: dynamicSize * 0.05,
+              fontSize: dynamicSize * 0.035,
               backgroundColor: Colors.cyan.withOpacity(0.6),
             )
           ],
