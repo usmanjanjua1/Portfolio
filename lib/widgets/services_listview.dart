@@ -10,19 +10,6 @@ class ServicesListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Align(
-    //   alignment: Alignment.center,
-    //   child: SizedBox(
-    //     height: dynamicSize * 0.6,
-    //     child: ListView.builder(
-    //       scrollDirection: Axis.horizontal,
-    //       itemBuilder: (context, index) {
-    //         return serviceCard(index);
-    //       },
-    //       itemCount: myservices.length,
-    //     ),
-    //   ),
-    // );
     return Center(
       child: CarouselSlider.builder(
         itemCount: myservices.length,
@@ -44,7 +31,7 @@ class ServicesListview extends StatelessWidget {
     );
   }
 
-  Padding serviceCard(int index) {
+  Widget serviceCard(int index) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: dynamicSize * 0.06),
       child: Card(

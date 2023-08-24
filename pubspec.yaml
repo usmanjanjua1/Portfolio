@@ -37,6 +37,7 @@ dependencies:
   flutter_glow: ^0.3.0
   google_fonts: ^5.1.0
   carousel_slider: ^4.2.1
+  video_player: ^2.7.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,9 @@ flutter:
     - family: BricolageGrotesque
       fonts:
         - asset: fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf
+    - family: ArtySignature
+      fonts:
+        - asset: fonts/ArtySignature.otf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

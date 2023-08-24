@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
 
 class Education {

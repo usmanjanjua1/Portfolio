@@ -20,8 +20,6 @@ class CustomTextButton extends StatefulWidget {
 }
 
 class _CustomTextButtonState extends State<CustomTextButton> {
-  Color textColor = Colors.white;
-  Color hoverColor = Colors.transparent;
   @override
   Widget build(BuildContext context) {
     return Material(

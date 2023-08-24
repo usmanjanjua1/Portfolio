@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/utils/media_query.dart';
 import 'package:portfolio/utils/responsive.dart';
@@ -33,12 +34,13 @@ class _HomePageState extends State<HomePage> {
           children: [
             Stack(
               children: [
-                BackgroundImage(dynamicSize: dynamicSize),
+                // BackgroundImage(dynamicSize: dynamicSize),
+                BackgroundVideo(dynamicSize: dynamicSize),
                 if (Responsive.isDesktop(context) ||
                     Responsive.isTablet(context))
                   webAppBar(dynamicSize),
                 Positioned(
-                  top: 120,
+                  top: Responsive.isDesktop(context) ? 160 : 80,
                   bottom: 0,
                   left: 0,
                   right: 0,
@@ -47,13 +49,66 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Discover my amazing \nArtspace',
+                        'UsmanTariq  Janjua',
                         style: TextStyle(
-                            fontSize: dynamicSize * 0.1, color: Colors.white),
+                          fontSize: Responsive.isDesktop(context)
+                              ? dynamicSize * 0.3
+                              : dynamicSize * 0.13,
+                          color: Colors.white,
+                          fontFamily: 'ArtySignature',
+                        ),
                       ),
                     ],
                   ),
-                )
+                ),
+                Positioned(
+                  top: Responsive.isDesktop(context) ? 570 : 190,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'ENGINEER   - PROGRAMMER -   TECHGEEK',
+                        style: TextStyle(
+                            fontSize: Responsive.isDesktop(context)
+                                ? dynamicSize * 0.027
+                                : dynamicSize * 0.013,
+                            color: Colors.white,
+                            fontFamily: GoogleFonts.montserrat().fontFamily,
+                            fontWeight: FontWeight.w100,
+                            letterSpacing:
+                                Responsive.isDesktop(context) ? 10 : 3),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: Responsive.isDesktop(context) ? 670 : 220,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '⌵',
+                        style: TextStyle(
+                            fontSize: Responsive.isDesktop(context)
+                                ? dynamicSize * 0.04
+                                : dynamicSize * 0.017,
+                            color: Colors.white,
+                            fontFamily: GoogleFonts.montserrat().fontFamily,
+                            fontWeight: FontWeight.w100,
+                            letterSpacing:
+                                Responsive.isDesktop(context) ? 10 : 3),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
             SizedBox(

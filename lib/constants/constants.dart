@@ -34,3 +34,5 @@ const String unihatAnimatedIcon = 'assets/graduation-hat.png';
 const String collegeAnimatedIcon = 'assets/college1.png';
 const String trophyAnimatedIcon = 'assets/trophy1.png';
 const String planeAnimatedIcon = 'assets/paper-plane.png';
+
+const String backgroundVideoPath = 'assets/appVideo.mp4';
