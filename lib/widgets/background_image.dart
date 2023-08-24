@@ -75,7 +75,7 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
       width: double.maxFinite,
       height: Responsive.isDesktop(context)
           ? widget.dynamicSize * 1.7 //web view
-          : widget.dynamicSize * 0.8, // 40% of screen height
+          : widget.dynamicSize * 0.565, // 40% of screen height
       child: _controller.value.isInitialized
           ? FittedBox(
               fit: BoxFit.contain,
@@ -87,6 +87,7 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
             )
           : SizedBox(
               height: widget.dynamicSize * 0.1,
+              width: widget.dynamicSize * 0.1,
               child:
                   const CircularProgressIndicator()), // Show a loading indicator until the video is initialized
     );

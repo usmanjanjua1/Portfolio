@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                     Responsive.isTablet(context))
                   webAppBar(dynamicSize),
                 Positioned(
-                  top: Responsive.isDesktop(context) ? 160 : 80,
+                  top: Responsive.isDesktop(context) ? 160 : 40,
                   bottom: 0,
                   left: 0,
                   right: 0,
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                           fontSize: Responsive.isDesktop(context)
                               ? dynamicSize * 0.3
-                              : dynamicSize * 0.13,
+                              : dynamicSize * 0.2,
                           color: Colors.white,
                           fontFamily: 'ArtySignature',
                         ),
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: Responsive.isDesktop(context) ? 570 : 190,
+                  top: Responsive.isDesktop(context) ? 570 : 160,
                   bottom: 0,
                   left: 0,
                   right: 0,
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: Responsive.isDesktop(context)
                                 ? dynamicSize * 0.027
-                                : dynamicSize * 0.013,
+                                : dynamicSize * 0.018,
                             color: Colors.white,
                             fontFamily: GoogleFonts.montserrat().fontFamily,
                             fontWeight: FontWeight.w100,
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: Responsive.isDesktop(context) ? 670 : 220,
+                  top: Responsive.isDesktop(context) ? 670 : 190,
                   bottom: 0,
                   left: 0,
                   right: 0,
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                         style: TextStyle(
                             fontSize: Responsive.isDesktop(context)
                                 ? dynamicSize * 0.04
-                                : dynamicSize * 0.017,
+                                : dynamicSize * 0.03,
                             color: Colors.white,
                             fontFamily: GoogleFonts.montserrat().fontFamily,
                             fontWeight: FontWeight.w100,
@@ -138,7 +138,8 @@ class _HomePageState extends State<HomePage> {
                               double avatarSize = dynamicSize * 0.2;
                               return CircleAvatar(
                                 radius: avatarSize,
-                                backgroundImage: const AssetImage(backImg),
+                                backgroundImage:
+                                    const AssetImage(myProfileImage2),
                               );
                             },
                           ),
