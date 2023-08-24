@@ -13,7 +13,7 @@ Widget webAppBar(dynamicSize) {
         // CustomButton(txt: 'Contact', dynamicSize: dynamicSize),
         CustomTextButton(
           padding: EdgeInsets.all(dynamicSize * 0.026),
-          text: 'Service',
+          text: 'Services',
           onTab: () {},
           color: Colors.white,
           fontSize: dynamicSize * 0.04,
@@ -21,7 +21,7 @@ Widget webAppBar(dynamicSize) {
         ),
         CustomTextButton(
           padding: EdgeInsets.all(dynamicSize * 0.024),
-          text: 'Experience',
+          text: 'Skills',
           onTab: () {},
           color: Colors.white,
           fontSize: dynamicSize * 0.04,
