@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^5.1.0
   carousel_slider: ^4.2.1
   video_player: ^2.7.0
+  url_launcher: ^6.1.12
+  avatar_glow: ^2.0.2
 
 dev_dependencies:
   flutter_test:

@@ -24,6 +24,8 @@ const String githubImg = 'assets/github.png';
 const String instagramImg = 'assets/instagram.png';
 const String myProfileImage = 'assets/myImg.jpg';
 const String myProfileImage2 = 'assets/myImg2.jpg';
+const String myProfileImageFinal = 'assets/finalfinalfinalImage.jpg';
+
 const String myImg = 'assets/myImg.jpg';
 const String pgcImg = 'assets/pgc.png';
 const String schoolImg = 'assets/school.png';
@@ -36,5 +38,7 @@ const String unihatAnimatedIcon = 'assets/graduation-hat.png';
 const String collegeAnimatedIcon = 'assets/college1.png';
 const String trophyAnimatedIcon = 'assets/trophy1.png';
 const String planeAnimatedIcon = 'assets/paper-plane.png';
+const String facebookImg = 'assets/facebook.png';
 
+const String twitterImg = 'assets/twitternew.png';
 const String backgroundVideoPath = 'assets/appVideo.mp4';

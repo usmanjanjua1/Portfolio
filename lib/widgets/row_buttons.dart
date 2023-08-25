@@ -8,9 +8,6 @@ Widget webAppBar(dynamicSize) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        // CustomButton(txt: 'Services', dynamicSize: dynamicSize),
-        // CustomButton(txt: 'Experience', dynamicSize: dynamicSize),
-        // CustomButton(txt: 'Contact', dynamicSize: dynamicSize),
         CustomTextButton(
           padding: EdgeInsets.all(dynamicSize * 0.026),
           text: 'Services',

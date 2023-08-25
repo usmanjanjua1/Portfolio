@@ -36,9 +36,9 @@ class _HomePageState extends State<HomePage> {
               children: [
                 // BackgroundImage(dynamicSize: dynamicSize),
                 BackgroundVideo(dynamicSize: dynamicSize),
-                if (Responsive.isDesktop(context) ||
-                    Responsive.isTablet(context))
-                  webAppBar(dynamicSize),
+                // if (Responsive.isDesktop(context) ||
+                //     Responsive.isTablet(context))
+                //   webAppBar(dynamicSize),
                 Positioned(
                   top: Responsive.isDesktop(context) ? 160 : 40,
                   bottom: 0,
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                               return CircleAvatar(
                                 radius: avatarSize,
                                 backgroundImage:
-                                    const AssetImage(myProfileImage2),
+                                    const AssetImage(myProfileImageFinal),
                               );
                             },
                           ),
