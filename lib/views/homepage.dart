@@ -15,6 +15,7 @@ import '../widgets/custom_title.dart';
 import '../widgets/education_tiles.dart';
 import '../widgets/row_buttons.dart';
 import 'mobileview.dart';
+import 'webview_services_education.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -171,7 +172,9 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Responsive.isDesktop(context)
-                ? webviewOfServicesEducation(dynamicSize)
+                ? WebViewServicesEducation(
+                    dynamicSize: dynamicSize,
+                  )
                 : MobileView(dynamicSize: dynamicSize),
             const customDivider(),
             ContactCard(dynamicSize: dynamicSize),
@@ -182,89 +185,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget webviewOfServicesEducation(dynamicSize) {
-    return Column(
-      children: [
-        const customDivider(),
-        SizedBox(
-          height: dynamicSize * 1,
-          width: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(flex: 1, child: SizedBox()),
-              Expanded(
-                flex: 6,
-                child: Column(
-                  children: [
-                    const customTitle(txt: 'Skills'),
-                    Expanded(
-                      child: Center(
-                          child:
-                              CompleteCircleWidget(dynamicSize: dynamicSize)),
-                    ),
-                  ],
-                ),
-              ),
-              const Expanded(
-                  flex: 1,
-                  child: VerticalDivider(
-                    color: Colors.white,
-                  )),
-              Expanded(
-                  flex: 6,
-                  child: Column(
-                    children: [
-                      const customTitle(txt: 'Programming Languages'),
-                      Expanded(
-                        child: CompleteLinearProgressWidget(
-                            dynamicSize: dynamicSize),
-                      ),
-                    ],
-                  )),
-              const Expanded(flex: 1, child: SizedBox()),
-            ],
-          ),
-        ),
-        const customDivider(),
-        SizedBox(
-          height: dynamicSize * 0.8,
-          width: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(flex: 1, child: SizedBox()),
-              Expanded(
-                flex: 6,
-                child: Column(
-                  children: [
-                    const customTitle(txt: 'Education'),
-                    Expanded(child: EducationTiles(dynamicSize: dynamicSize)),
-                  ],
-                ),
-              ),
-              const Expanded(
-                  flex: 1,
-                  child: VerticalDivider(
-                    color: Colors.white,
-                  )),
-              Expanded(
-                  flex: 6,
-                  child: Column(
-                    children: [
-                      const customTitle(txt: 'Services'),
-                      Expanded(
-                          child: ServicesListview(dynamicSize: dynamicSize)),
-                    ],
-                  )),
-              const Expanded(flex: 1, child: SizedBox()),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
