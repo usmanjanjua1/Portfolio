@@ -6,34 +6,30 @@ import 'package:video_player/video_player.dart';
 
 import '../utils/responsive.dart';
 
-// class BackgroundImage extends StatelessWidget {
-//   final double dynamicSize;
+class BackgroundImage extends StatelessWidget {
+  final double dynamicSize;
 
-//   const BackgroundImage({super.key, required this.dynamicSize});
+  const BackgroundImage({super.key, required this.dynamicSize});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: double.maxFinite,
-//       height: Responsive.isDesktop(context)
-//           ? dynamicSize //web view
-//           : dynamicSize * 0.7, // 40% of screen height
-//       decoration: const BoxDecoration(
-//           // color: Colors.amber,
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          // color: Colors.amber,
 
-//           // image: DecorationImage(
-//           //   image: AssetImage(
-//           //       'assets/background.jpg'), // Replace with your image path
-//           //   fit: BoxFit.cover,
-//           // ),
-//           ),
-//       child: Image.asset(
-//         backImg,
-//         fit: BoxFit.cover,
-//       ),
-//     );
-//   }
-// }
+          // image: DecorationImage(
+          //   image: AssetImage(
+          //       'assets/background.jpg'), // Replace with your image path
+          //   fit: BoxFit.cover,
+          // ),
+          ),
+      child: Image.asset(
+        backImg,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}
 
 class BackgroundVideo extends StatefulWidget {
   final double dynamicSize;
@@ -75,7 +71,7 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
       width: double.maxFinite,
       height: Responsive.isDesktop(context)
           ? widget.dynamicSize * 1.7 //web view
-          : widget.dynamicSize * 0.565, // 40% of screen height
+          : widget.dynamicSize * 0.565, // height for mobile view
       child: _controller.value.isInitialized
           ? FittedBox(
               fit: BoxFit.contain,
@@ -85,11 +81,13 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
                 child: VideoPlayer(_controller),
               ),
             )
+          // : BackgroundImage(dynamicSize: widget.dynamicSize),
           : SizedBox(
               height: widget.dynamicSize * 0.1,
               width: widget.dynamicSize * 0.1,
-              child:
-                  const CircularProgressIndicator()), // Show a loading indicator until the video is initialized
+              child: const CircularProgressIndicator(
+                color: Colors.white,
+              )), // Show a loading indicator until the video is initialized
     );
   }
 }
