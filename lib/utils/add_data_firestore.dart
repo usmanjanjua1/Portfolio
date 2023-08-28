@@ -57,9 +57,11 @@ import '../models/projects.dart';
 //   }
 // }
 
-class FetchDataProvider with ChangeNotifier {
+class FetchDataProvider extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
+  bool _fetched = false;
+  bool get fetched => _fetched;
 
   Future<void> fetchDataFromFirestore(String personDocId) async {
     _isLoading = true;
@@ -103,7 +105,7 @@ class FetchDataProvider with ChangeNotifier {
             project['desc'],
           );
         }).toList();
-
+        _fetched = true;
         print('Data fetched from Firestore and lists populated.');
       } else {
         print('No data found in Firestore for the given document ID.');
