@@ -48,14 +48,6 @@ class ProjectsTile extends StatelessWidget {
                 maxLines: 4,
               ),
             ),
-            // TextButton(
-            //     onPressed: () {},
-            //     child: Text(
-            //       'Read more>>',
-            //       style: TextStyle(
-            //           color: Colors.deepPurple.shade400,
-            //           fontSize: screensize * 0.045),
-            //     ))
           ],
         ),
       ),

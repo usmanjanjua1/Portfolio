@@ -1,6 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils/common_functions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/constants.dart';
 
@@ -18,9 +18,13 @@ class ContactBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-            onTap: () {
-              CommonFunctions.launchURL(
-                  'https://www.linkedin.com/in/usman-tariq-janjua-58b504262');
+            onTap: () async {
+              // CommonFunctions.launchURL(
+              //     'https://www.linkedin.com/in/usman-tariq-janjua-58b504262');
+              String link =
+                  'https://www.linkedin.com/in/usman-tariq-janjua-58b504262';
+              final Uri url = Uri.parse(link);
+              await launchUrl(url);
             },
             hoverColor: Colors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),
@@ -39,7 +43,10 @@ class ContactBar extends StatelessWidget {
           ),
           InkWell(
             onTap: () async {
-              CommonFunctions.launchURL('https://github.com/usmanjanjua1');
+              // CommonFunctions.launchURL('https://github.com/usmanjanjua1');
+              String link = 'https://github.com/usmanjanjua1';
+              final Uri url = Uri.parse(link);
+              await launchUrl(url);
             },
             hoverColor: Colors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),
@@ -58,8 +65,11 @@ class ContactBar extends StatelessWidget {
           ),
           InkWell(
             onTap: () async {
-              CommonFunctions.launchURL(
-                  'https://twitter.com/teamkhabib?lang=en');
+              // CommonFunctions.launchURL(
+              //     'https://twitter.com/teamkhabib?lang=en');
+              String link = 'https://twitter.com/teamkhabib?lang=en';
+              final Uri url = Uri.parse(link);
+              await launchUrl(url);
             },
             hoverColor: Colors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),
@@ -78,8 +88,11 @@ class ContactBar extends StatelessWidget {
           ),
           InkWell(
             onTap: () async {
-              CommonFunctions.launchURL(
-                  'https://www.facebook.com/KhabibTheEagle/');
+              // CommonFunctions.launchURL(
+              //     'https://www.facebook.com/KhabibTheEagle/');
+              String link = 'https://www.facebook.com/KhabibTheEagle/';
+              final Uri url = Uri.parse(link);
+              await launchUrl(url);
             },
             hoverColor: Colors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),
@@ -97,9 +110,12 @@ class ContactBar extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {
-              CommonFunctions.launchURL(
-                  'https://www.instagram.com/usman_._janjua/');
+            onTap: () async {
+              // CommonFunctions.launchURL(
+              //     'https://www.instagram.com/usman_._janjua/');
+              String link = 'https://www.instagram.com/usman_._janjua/';
+              final Uri url = Uri.parse(link);
+              await launchUrl(url);
             },
             hoverColor: Colors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),
