@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:portfolio/models/mycontact.dart';
+import 'package:flutter/material.dart';
 
 import '../models/education.dart';
 import '../models/myservices.dart';
 import '../models/projects.dart';
 
-// Future<void> uploadDataToFirestore() async {
+// Future<void> fetchDataFromFirestore() async {
 //   final CollectionReference personCollection =
 //       FirebaseFirestore.instance.collection('Me');
 
@@ -13,88 +13,106 @@ import '../models/projects.dart';
 //   String personDocId = 'Usman Tariq'; // Replace with the actual document ID
 
 //   // Get the person document reference
-//   DocumentReference personDocRef = personCollection.doc(personDocId);
+//   DocumentSnapshot personDocSnapshot =
+//       await personCollection.doc(personDocId).get();
 
-//   // Prepare the data for upload
-//   Map<String, dynamic> data = {
-//     'myEducation': myEducation.map((education) {
-//       return {
-//         'title': education.title,
-//         'subtitle': education.subtitle,
-//         'year': education.year,
-//         'img': education.img,
-//       };
-//     }).toList(),
-//     'myservices': myservices.map((service) {
-//       return {
-//         'image': service.image,
-//         'title': service.title,
-//         'desc': service.desc,
-//       };
-//     }).toList(),
-//     'myProjects': myProjects.map((project) {
-//       return {
-//         'image': project.image,
-//         'title': project.title,
-//         'desc': project.desc,
-//       };
-//     }).toList(),
-//   };
+//   // Get data from the document snapshot
+//   Map<String, dynamic> data = personDocSnapshot.data() as Map<String, dynamic>;
 
-//   // Upload the data to Firestore
-//   await personDocRef.set(data);
+//   if (data != null) {
+//     // Fetch myEducation data
+//     List<dynamic> educationList = data['myEducation'];
+//     myEducation = educationList.map((edu) {
+//       return Education(
+//         edu['title'],
+//         edu['subtitle'],
+//         edu['year'],
+//         edu['img'],
+//       );
+//     }).toList();
 
-//   print('Data uploaded to Firestore.');
+//     // Fetch myservices data
+//     List<dynamic> servicesList = data['myservices'];
+//     myservices = servicesList.map((service) {
+//       return MyServices(
+//         service['image'],
+//         service['title'],
+//         service['desc'],
+//       );
+//     }).toList();
+
+//     // Fetch myProjects data
+//     List<dynamic> projectsList = data['myProjects'];
+//     myProjects = projectsList.map((project) {
+//       return MyProjects(
+//         project['image'],
+//         project['title'],
+//         project['desc'],
+//       );
+//     }).toList();
+
+//     print('Data fetched from Firestore and lists populated.');
+//   } else {
+//     print('No data found in Firestore for the given document ID.');
+//   }
 // }
 
-Future<void> fetchDataFromFirestore() async {
-  final CollectionReference personCollection =
-      FirebaseFirestore.instance.collection('Me');
+class FetchDataProvider with ChangeNotifier {
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
 
-  // Assume you have a specific person document ID
-  String personDocId = 'Usman Tariq'; // Replace with the actual document ID
+  Future<void> fetchDataFromFirestore(String personDocId) async {
+    _isLoading = true;
+    notifyListeners();
 
-  // Get the person document reference
-  DocumentSnapshot personDocSnapshot =
-      await personCollection.doc(personDocId).get();
+    final CollectionReference personCollection =
+        FirebaseFirestore.instance.collection('Me');
 
-  // Get data from the document snapshot
-  Map<String, dynamic> data = personDocSnapshot.data() as Map<String, dynamic>;
+    try {
+      DocumentSnapshot personDocSnapshot =
+          await personCollection.doc(personDocId).get();
 
-  if (data != null) {
-    // Fetch myEducation data
-    List<dynamic> educationList = data['myEducation'];
-    myEducation = educationList.map((edu) {
-      return Education(
-        edu['title'],
-        edu['subtitle'],
-        edu['year'],
-        edu['img'],
-      );
-    }).toList();
+      Map<String, dynamic> data =
+          personDocSnapshot.data() as Map<String, dynamic>;
 
-    // Fetch myservices data
-    List<dynamic> servicesList = data['myservices'];
-    myservices = servicesList.map((service) {
-      return MyServices(
-        service['image'],
-        service['title'],
-        service['desc'],
-      );
-    }).toList();
+      if (data != null) {
+        List<dynamic> educationList = data['myEducation'];
+        myEducation = educationList.map((edu) {
+          return Education(
+            edu['title'],
+            edu['subtitle'],
+            edu['year'],
+            edu['img'],
+          );
+        }).toList();
 
-    // Fetch myProjects data
-    List<dynamic> projectsList = data['myProjects'];
-    myProjects = projectsList.map((project) {
-      return MyProjects(
-        project['image'],
-        project['title'],
-        project['desc'],
-      );
-    }).toList();
+        List<dynamic> servicesList = data['myservices'];
+        myservices = servicesList.map((service) {
+          return MyServices(
+            service['image'],
+            service['title'],
+            service['desc'],
+          );
+        }).toList();
 
-    print('Data fetched from Firestore and lists populated.');
-  } else {
-    print('No data found in Firestore for the given document ID.');
+        List<dynamic> projectsList = data['myProjects'];
+        myProjects = projectsList.map((project) {
+          return MyProjects(
+            project['image'],
+            project['title'],
+            project['desc'],
+          );
+        }).toList();
+
+        print('Data fetched from Firestore and lists populated.');
+      } else {
+        print('No data found in Firestore for the given document ID.');
+      }
+    } catch (error) {
+      print('Error fetching data: $error');
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 }
