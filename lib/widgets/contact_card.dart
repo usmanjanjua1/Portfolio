@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/widgets/alert_dialog.dart';
 import 'package:portfolio/widgets/custom_roundbutton.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactCard extends StatelessWidget {
   final double dynamicSize;

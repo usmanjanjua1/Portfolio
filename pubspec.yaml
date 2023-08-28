@@ -40,6 +40,8 @@ dependencies:
   video_player: ^2.7.0
   url_launcher: ^6.1.12
   avatar_glow: ^2.0.2
+  firebase_core: ^2.15.1
+  cloud_firestore: ^4.9.0
 
 dev_dependencies:
   flutter_test:

@@ -39,7 +39,7 @@ class ServicesListview extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
+            Image.network(
               myservices[index].image,
               color: Colors.cyan.withOpacity(0.35),
               height: dynamicSize * 0.3,

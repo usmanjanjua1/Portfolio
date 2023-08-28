@@ -27,7 +27,7 @@ class CardTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(
+            Image.network(
               img,
               height: screensize * 0.3,
               width: screensize * 0.3,

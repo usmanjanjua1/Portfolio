@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/utils/add_data_firestore.dart';
 import 'package:portfolio/utils/media_query.dart';
 import 'package:portfolio/utils/responsive.dart';
 import 'package:portfolio/widgets/custom_divider.dart';
@@ -19,10 +20,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    fetchDataFromFirestore();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // uploadDataToFirestore();
     dynamic dynamicSize = GetScreenSize.getScreenWidth(context);
     return SafeArea(
       child: Scaffold(
+        // floatingActionButton: FloatingActionButton(
+        //     onPressed: () {
+        //       fetchDataFromFirestore();
+        //       print(myservices[0].title);
+        //     },
+        //     child: Icon(Icons.add)),
         backgroundColor: Colors.black,
         body: ListView(
           children: [
@@ -169,12 +183,6 @@ class _HomePageState extends State<HomePage> {
                     dynamicSize: dynamicSize,
                   )
                 : MobileView(dynamicSize: dynamicSize),
-
-            //projects tab
-            // const customDivider(),
-            // Responsive.isMobile(context)?
-            // ContactCard(dynamicSize: dynamicSize):
-
             const customDivider(),
             ContactBar(dynamicSize: dynamicSize),
             const customDivider(),
