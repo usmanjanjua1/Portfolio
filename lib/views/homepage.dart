@@ -3,17 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/utils/media_query.dart';
 import 'package:portfolio/utils/responsive.dart';
-import 'package:portfolio/views/complete_linearprogress_widget.dart';
-import 'package:portfolio/widgets/complete_circleprogress_widget.dart';
-import 'package:portfolio/widgets/contact_card.dart';
 import 'package:portfolio/widgets/custom_divider.dart';
-import 'package:portfolio/widgets/services_listview.dart';
 import '../widgets/background_image.dart';
 import '../widgets/bottom_text.dart';
 import '../widgets/contact_bar.dart';
-import '../widgets/custom_title.dart';
-import '../widgets/education_tiles.dart';
-import '../widgets/row_buttons.dart';
 import 'mobileview.dart';
 import 'webview_services_education.dart';
 
@@ -176,8 +169,12 @@ class _HomePageState extends State<HomePage> {
                     dynamicSize: dynamicSize,
                   )
                 : MobileView(dynamicSize: dynamicSize),
-            const customDivider(),
-            ContactCard(dynamicSize: dynamicSize),
+
+            //projects tab
+            // const customDivider(),
+            // Responsive.isMobile(context)?
+            // ContactCard(dynamicSize: dynamicSize):
+
             const customDivider(),
             ContactBar(dynamicSize: dynamicSize),
             const customDivider(),

@@ -1,7 +1,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/common_functions.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/constants.dart';
 
@@ -100,7 +99,7 @@ class ContactBar extends StatelessWidget {
           InkWell(
             onTap: () {
               CommonFunctions.launchURL(
-                  'https://www.instagram.com/khabib_nurmagomedov/?hl=en');
+                  'https://www.instagram.com/usman_._janjua/');
             },
             hoverColor: Colors.grey.withOpacity(0.5),
             borderRadius: BorderRadius.circular(20),

@@ -42,3 +42,8 @@ const String facebookImg = 'assets/facebook.png';
 
 const String twitterImg = 'assets/twitternew.png';
 const String backgroundVideoPath = 'assets/appVideo.mp4';
+
+const String motherboardImg = 'assets/motherboard.png';
+const String chatImg = 'assets/chat.png';
+const String movieImg = 'assets/movie.png';
+const String gameImg = 'assets/joystick.png';

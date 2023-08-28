@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/contact_card.dart';
 
 import '../widgets/complete_circleprogress_widget.dart';
+import '../widgets/complete_projects_tab.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_title.dart';
 import '../widgets/education_tiles.dart';
@@ -21,6 +23,7 @@ class _WebViewServicesEducationState extends State<WebViewServicesEducation> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //progess indicators
         const customDivider(),
         SizedBox(
           height: widget.dynamicSize * 1,
@@ -62,6 +65,7 @@ class _WebViewServicesEducationState extends State<WebViewServicesEducation> {
             ],
           ),
         ),
+        //education and services
         const customDivider(),
         SizedBox(
           height: widget.dynamicSize * 0.8,
@@ -93,6 +97,46 @@ class _WebViewServicesEducationState extends State<WebViewServicesEducation> {
                       Expanded(
                           child: ServicesListview(
                               dynamicSize: widget.dynamicSize)),
+                    ],
+                  )),
+              const Expanded(flex: 1, child: SizedBox()),
+            ],
+          ),
+        ),
+
+        //contact bar and projects
+        const customDivider(),
+        SizedBox(
+          height: widget.dynamicSize * 0.8,
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  children: [
+                    const customTitle(txt: 'Get In Touch'),
+                    Expanded(
+                        child: ContactCard(dynamicSize: widget.dynamicSize)),
+                  ],
+                ),
+              ),
+              const Expanded(
+                  flex: 1,
+                  child: VerticalDivider(
+                    color: Colors.white,
+                  )),
+              Expanded(
+                  flex: 6,
+                  child: Column(
+                    children: [
+                      const customTitle(txt: 'Projects'),
+                      Expanded(
+                          child: ProjectsView(
+                        dynamicSize: widget.dynamicSize,
+                      )),
                     ],
                   )),
               const Expanded(flex: 1, child: SizedBox()),
