@@ -65,7 +65,6 @@ class FetchDataProvider extends ChangeNotifier {
 
   Future<void> fetchDataFromFirestore(String personDocId) async {
     _isLoading = true;
-    notifyListeners();
 
     final CollectionReference personCollection =
         FirebaseFirestore.instance.collection('Me');
@@ -106,6 +105,7 @@ class FetchDataProvider extends ChangeNotifier {
           );
         }).toList();
         _fetched = true;
+        notifyListeners();
         print('Data fetched from Firestore and lists populated.');
       } else {
         print('No data found in Firestore for the given document ID.');

@@ -21,21 +21,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _dataFetched = false;
-  @override
-  // void initState() {
-  //   // fetchDataFromFirestore();
-  //   // FetchDataProvider.fetchDataFromFirestore('Usman Tariq');
-  //   Provider.of<FetchDataProvider>(context)
-  //       .fetchDataFromFirestore('Usman Tariq');
 
-  //   super.initState();
-  // }
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     if (!_dataFetched) {
       Provider.of<FetchDataProvider>(context)
           .fetchDataFromFirestore('Usman Tariq');
+
       _dataFetched = true;
     }
   }
