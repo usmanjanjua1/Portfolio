@@ -17,21 +17,21 @@ class CompleteCircleWidget extends StatelessWidget {
         child: Row(children: [
           Expanded(
             child: AnimatedCircularProgressIndicator(
-                dynamicSize: dynamicSize, label: 'Web', percentage: 0.6),
+                dynamicSize: dynamicSize, label: 'Web', percentage: 0.55),
           ),
           SizedBox(
             width: dynamicSize * 0.1,
           ),
           Expanded(
             child: AnimatedCircularProgressIndicator(
-                dynamicSize: dynamicSize, label: 'C++', percentage: 0.9),
+                dynamicSize: dynamicSize, label: 'C++', percentage: 0.85),
           ),
           SizedBox(
             width: dynamicSize * 0.1,
           ),
           Expanded(
             child: AnimatedCircularProgressIndicator(
-                dynamicSize: dynamicSize, label: 'Flutter', percentage: 0.65),
+                dynamicSize: dynamicSize, label: 'Flutter', percentage: 0.7),
           ),
         ]),
       ),

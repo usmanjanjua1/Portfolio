@@ -112,8 +112,8 @@ class ContactBar extends StatelessWidget {
           InkWell(
             onTap: () async {
               // CommonFunctions.launchURL(
-              //     'https://www.instagram.com/usman_._janjua/');
-              String link = 'https://www.instagram.com/usman_._janjua/';
+              //     'https://www.instagram.com/usman/');
+              String link = 'https://www.instagram.com/instagram/';
               final Uri url = Uri.parse(link);
               await launchUrl(url);
             },

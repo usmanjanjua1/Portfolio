@@ -96,14 +96,14 @@ class FetchDataProvider extends ChangeNotifier {
           );
         }).toList();
 
-        List<dynamic> projectsList = data['myProjects'];
-        myProjects = projectsList.map((project) {
-          return MyProjects(
-            project['image'],
-            project['title'],
-            project['desc'],
-          );
-        }).toList();
+        // List<dynamic> projectsList = data['myProjects'];
+        // myProjects = projectsList.map((project) {
+        //   return MyProjects(
+        //     project['image'],
+        //     project['title'],
+        //     project['desc'],
+        //   );
+        // }).toList();
         _fetched = true;
         notifyListeners();
         print('Data fetched from Firestore and lists populated.');

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 class ProjectsTile extends StatelessWidget {
   final double screensize;
   final String title;
   final String subTitile;
   final String img;
+  final String link;
   const ProjectsTile(
       {super.key,
       required this.screensize,
       required this.title,
       required this.subTitile,
-      required this.img});
+      required this.img,
+      required this.link});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +52,22 @@ class ProjectsTile extends StatelessWidget {
                 maxLines: 4,
               ),
             ),
+            link.isEmpty
+                ? const SizedBox(
+                    height: 0.0001,
+                  )
+                : TextButton(
+                    onPressed: () async {
+                      String vlink = link;
+                      final Uri url = Uri.parse(vlink);
+                      await launchUrl(url);
+                    },
+                    child: Text(
+                      'Project Video',
+                      style: TextStyle(
+                          color: Colors.deepPurple.shade400,
+                          fontSize: screensize * 0.04),
+                    ))
           ],
         ),
       ),

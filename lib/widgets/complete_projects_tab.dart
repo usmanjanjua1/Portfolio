@@ -20,6 +20,7 @@ class ProjectsView extends StatelessWidget {
             img: myProjects[index].image,
             title: myProjects[index].title,
             subTitile: myProjects[index].desc,
+            link: myProjects[index].videoLink,
           );
         },
         options: CarouselOptions(

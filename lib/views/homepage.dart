@@ -22,14 +22,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _dataFetched = false;
 
+  @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    if (!_dataFetched) {
+    if (!Provider.of<FetchDataProvider>(context).fetched) {
       Provider.of<FetchDataProvider>(context)
           .fetchDataFromFirestore('Usman Tariq');
-
-      _dataFetched = true;
     }
   }
 
@@ -50,6 +49,7 @@ class _HomePageState extends State<HomePage> {
             ? ListView(
                 children: [
                   Stack(
+                    // video
                     children: [
                       // BackgroundImage(dynamicSize: dynamicSize),
                       BackgroundVideo(dynamicSize: dynamicSize),
@@ -131,6 +131,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(
+                    // Profile Picture and lines around
                     height: dynamicSize * 0.4,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -203,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               )
             : const Center(
-                child: CircularProgressIndicator(color: Colors.white)),
+                child: CircularProgressIndicator(color: Colors.white54)),
       ),
     );
   }

@@ -57,7 +57,10 @@ class CardTile extends StatelessWidget {
                 maxLines: 4,
               ),
             ),
-            TextButton(
+            SizedBox(
+              height: screensize * 0.045,
+            )
+            /*     TextButton(
                 onPressed: () {},
                 child: Text(
                   'Read more>>',
@@ -65,6 +68,7 @@ class CardTile extends StatelessWidget {
                       color: Colors.deepPurple.shade400,
                       fontSize: screensize * 0.045),
                 ))
+           */
           ],
         ),
       ),

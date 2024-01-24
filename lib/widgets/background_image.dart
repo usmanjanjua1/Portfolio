@@ -82,11 +82,15 @@ class _BackgroundVideoState extends State<BackgroundVideo> {
               ),
             )
           // : BackgroundImage(dynamicSize: widget.dynamicSize),
-          : SizedBox(
-              height: widget.dynamicSize * 0.1,
-              width: widget.dynamicSize * 0.1,
-              child: const CircularProgressIndicator(
-                color: Colors.white,
+          : Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                height: widget.dynamicSize * 0.2,
+                width: widget.dynamicSize * 0.2,
+                child: const CircularProgressIndicator(
+                  color: Colors.white,
+                  backgroundColor: Colors.white60,
+                ),
               )), // Show a loading indicator until the video is initialized
     );
   }
